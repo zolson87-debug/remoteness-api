@@ -5,9 +5,13 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors"); // NEW: CORS support
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Allow all origins (you can restrict later to your domain if you like)
+app.use(cors());
 
 // --- Load ZIP data into memory ---
 const zipsFilePath = path.join(__dirname, "zips.json");
